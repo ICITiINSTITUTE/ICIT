@@ -36,3 +36,125 @@ pre{
   text-decoration: seagreen;
  text-decoration-style: dashed;
 }
+p{
+  text-decoration: blanchedalmond;
+}
+h2{
+  background-color: aqua;
+  background-position: 0cap;
+  text-align: center;
+  text-decoration: darkgreen;
+ 
+}
+p{
+  background-color: #87CEEB;
+  background-attachment: scroll;
+  text-decoration-color: aqua;
+  
+
+}
+body {
+  background-color: #FFFFFF;
+  color: #333333;
+}
+
+header {
+ 
+  color: white;
+}
+
+button {
+  background-color: #FFA500;
+  color: white;
+}
+button {
+ background-color: cadetblue;
+}
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Body background and text */
+body {
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 25;
+
+}
+
+/* Header */
+header {
+  background-color: black; /* Royal Blue */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Main Content */
+main {
+  padding: 30px;
+  text-align: center;
+}
+
+main p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  background-color: #ffa500; /* Orange */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e69500;
+}
+
+/* Links inside button */
+a button {
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background-color: beige; /* Navy Blue */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
