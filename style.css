@@ -30,3 +30,9 @@ footer {
   width: 100%;
   bottom: 0;
 }
+pre{
+  text-align: center;
+  text-emphasis: none;
+  text-decoration: seagreen;
+ text-decoration-style: dashed;
+}
