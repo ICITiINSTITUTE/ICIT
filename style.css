@@ -1,160 +1,161 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background: #f0f0f0;
-}
-
-header {
-  background: #333;
-  color: #fff;
-  padding: 2rem;
-}
-
-main {
-  margin: 2rem;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-footer {
-  background: #333;
-  color: #fff;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-pre{
-  text-align: center;
-  text-emphasis: none;
-  text-decoration: seagreen;
- text-decoration-style: dashed;
-}
-p{
-  text-decoration: blanchedalmond;
-}
-h2{
-  background-color: aqua;
-  background-position: 0cap;
-  text-align: center;
-  text-decoration: darkgreen;
- 
-}
-p{
-  background-color: #87CEEB;
-  background-attachment: scroll;
-  text-decoration-color: aqua;
-  
-
-}
-body {
-  background-color: #FFFFFF;
-  color: #333333;
-}
-
-header {
- 
-  color: white;
-}
-
-button {
-  background-color: #FFA500;
-  color: white;
-}
-button {
- background-color: cadetblue;
-}
-/* Reset some defaults */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
-/* Body background and text */
-body {
-  background-color: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
-  padding: 25;
-
-}
-
 /* Header */
 header {
-  background-color: black; /* Royal Blue */
+  background-color: #007bff;
   color: white;
-  padding: 20px 0;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-  font-size: 2rem;
-  letter-spacing: 1px;
-}
-
-/* Main Content */
-main {
-  padding: 30px;
+  padding: 20px;
   text-align: center;
 }
 
-main p {
-  font-size: 18px;
+/* Navbar style */
+.navbar {
+  display: flex;
+  gap: 20px;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+/* Basic link and button style */
+.navbar a, .dropdown-btn {
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff9c4; /* 🔸 Dropdown background color */
+  min-width: 200px;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: #333;
+}
+
+.dropdown-content a:hover {
+  background-color: #ffe082; /* 🔸 Hover color */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Submenu inside Services */
+.has-submenu {
+  position: relative;
+}
+
+.submenu-btn {
+  background: none;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #e0f7fa; /* 🔹 Submenu color */
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.has-submenu:hover .submenu {
+  display: block;
+}
+
+.submenu a:hover {
+  background-color: #b2ebf2;
+}
+/* General Styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  background-color: #ffffff;
   margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Buttons */
-button {
-  background-color: #ffa500; /* Orange */
+section h2 {
+  color: #004080;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 28px;
+  border-bottom: 2px solid #004080;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+section p,
+section ul {
+  font-size: 16px;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+section ul {
+  list-style: square inside;
+  padding-left: 0;
+}
+
+/* Contact Section */
+#contact p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+/* Online Registration Button */
+main a button {
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 12px 24px;
-  margin: 10px;
+  padding: 12px 30px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
-button:hover {
-  background-color: #e69500;
-}
-
-/* Links inside button */
-a button {
-  text-decoration: none;
+main a button:hover {
+  background-color: #0056b3;
 }
 
 /* Footer */
 footer {
-  background-color: beige; /* Navy Blue */
+  background-color: #004080;
   color: white;
   text-align: center;
-  padding: 15px 0;
-  margin-top: 40px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  main {
-    padding: 20px;
-  }
-
-  button {
-    width: 100%;
-    margin-top: 10px;
-  }
+  padding: 20px 10px;
+  margin-top: 30px;
+  font-size: 14px;
 }
