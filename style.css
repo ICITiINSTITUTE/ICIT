@@ -159,3 +159,171 @@ footer {
   margin-top: 30px;
   font-size: 14px;
 }
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #333;
+  justify-content: center;
+}
+
+.navbar a,
+.dropdown-btn {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropdown-btn {
+  background-color: #575757;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content,
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  min-width: 180px;
+  z-index: 1;
+  flex-direction: column;
+}
+
+.dropdown-content a,
+.submenu a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover,
+.submenu a:hover {
+  background-color: #666;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Submenu Styling */
+.has-submenu {
+  position: relative;
+}
+
+.submenu-btn {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.has-submenu:hover .submenu {
+  display: block;
+  left: 180px;
+  top: 0;
+}
+
+/* Section Styling */
+section {
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Main Button */
+main button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+main button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dropdown-content,
+  .submenu {
+    position: static;
+    min-width: 100%;
+  }
+
+  .has-submenu:hover .submenu {
+    left: 0;
+    top: auto;
+  }
+
+  .dropdown-content a,
+  .submenu a,
+  .submenu-btn {
+    text-align: center;
+  }
+
+  main button {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  section {
+    margin: 10px;
+    padding: 15px;
+  }
+}
