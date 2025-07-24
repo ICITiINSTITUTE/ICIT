@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIELIT O Level Registration Form</title>
+    <link rel="stylesheet" href="olevel.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="icit.jpg" alt="NIELIT Logo" class="form-logo">
+        </div>
+        <h1>REGISTRATION APPLICATION FORM FOR COURSE – O LEVEL</h1>
+        <p class="mandatory-note">Fields marked with (*) are Mandatory / अनिवार्य फिल्डस (Mandatory fields)</p>
+
+        <form id="oLevelApplicationForm" action="#" method="POST" enctype="multipart/form-data">
+
+            <fieldset>
+                <legend>1. Registration Details / पंजीयन का विवरण</legend>
+                <div class="form-group radio-group-inline">
+                    <label>1.0 Have you got online reference number for enrollment with NIELIT/Accreditation/Extension Center *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="onlineReference" value="No" required> No / नहीं</label>
+                        <label><input type="radio" name="onlineReference" value="Yes"> Yes / हां</label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="registrationSought">1.1 Registration sought for / के लिए पंजीयन *</label>
+                    <input type="text" id="registrationSought" value="O LEVEL" readonly required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group radio-group-inline">
+                    <label>1.2 Applied As / किसके रूप में आवेदन किया *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="appliedAs" value="Direct Candidate" required> Direct Candidate</label>
+                        <label><input type="radio" name="appliedAs" value="Through Institute"> Through Institute</label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="examCycle">1.3 Exam Cycle / परीक्षा चक्र *</label>
+                    <input type="text" id="examCycle" value="January, 2026 Fee : Rs/- 500.00" readonly required>
+                    <small>(Subject to Change)</small>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group radio-group-inline">
+                    <label>1.4 Registration Fee Will Be Paid By? / पंजीकरण शुल्क किसके द्वारा भुगतान किया जाएगा? *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="feePaidBy" value="Candidate directly to NIELIT" required> Candidate directly to NIELIT (Using Available Payment Methods)</label>
+                        <label><input type="radio" name="feePaidBy" value="NIELIT Center/Accredited Institute"> NIELIT Center/Accredited Institute</label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Applicant's Personal Details /आवेदक का व्यक्तिगत विवरण</legend>
+                <div class="form-group name-input-group">
+                    <label for="salutation">2.1 Applicant's full name / आवेदक का पूरा नाम *</label>
+                    <select id="salutation" required>
+                        <option value="">--Select--</option>
+                        <option value="Mr.">Mr./श्री</option>
+                        <option value="Ms.">Ms./सुश्री</option>
+                        <option value="Others">Others/अन्य</option>
+                    </select>
+                    <input type="text" id="fullName" placeholder="Full name as per certificate" required>
+                    <small>( Full name as per the highest / latest qualification certificate or legal certificate )</small>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group radio-group-inline">
+                    <label>2.2 Care Of / देखभाल *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="careOf" value="Parents" required> Parents / माता पिता</label>
+                        <label><input type="radio" name="careOf" value="Guardian"> Guardian / संरक्षक</label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group name-input-group">
+                    <label for="fatherSalutation">2.2.1 Father's Name / पिता का नाम *</label>
+                    <select id="fatherSalutation" required>
+                        <option value="Mr.">Mr./श्री</option>
+                    </select>
+                    <input type="text" id="fatherName" placeholder="Full Name As Per Educational/Legal Certificate" required>
+                    <small>( Full Name As Per Educational/Legal Certificate )</small>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group name-input-group">
+                    <label for="motherSalutation">2.2.2 Mother's Name / माता का नाम *</label>
+                    <select id="motherSalutation" required>
+                        <option value="Mrs.">Mrs./श्रीमती</option>
+                    </select>
+                    <input type="text" id="motherName" placeholder="Full Name As Per Educational/Legal Certificate" required>
+                    <small>( Full Name As Per Educational/Legal Certificate )</small>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">2.3 Gender / लिंग *</label>
+                    <select id="gender" required>
+                        <option value="">--Select Gender--</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Transgender">Transgender</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">2.4 Date of Birth / जन्म दिनांक *</label>
+                    <input type="date" id="dob" required>
+                    <small>( As per high school certificate in 'dd-Mon-yyyy' format. i.e. '01-Jan-1990' )</small>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="maritalStatus">2.5 Marital Status / वैवाहिक स्थिति *</label>
+                    <select id="maritalStatus" required>
+                        <option value="">--Select One--</option>
+                        <option value="Single">Single / अविवाहित</option>
+                        <option value="Married">Married / विवाहित</option>
+                        <option value="Divorced">Divorced / तलाकशुदा</option>
+                        <option value="Widowed">Widowed / विधवा / विधुर</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">2.6 Category / वर्ग *</label>
+                    <select id="category" required>
+                        <option value="">--Select One--</option>
+                        <option value="General">General / सामान्य</option>
+                        <option value="Scheduled Caste">Scheduled Caste / अनुसूचित जाति</option>
+                        <option value="Scheduled Tribe">Scheduled Tribe / अनुसूचित जनजाति</option>
+                        <option value="Other Backward Class">Other Backward Class / अन्य पिछड़ा वर्ग</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group radio-group-inline">
+                    <label>2.7 Handicapped / दिव्यांग *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="handicapped" value="No" required> No / नहीं</label>
+                        <label><input type="radio" name="handicapped" value="Yes"> Yes / हाँ</label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group radio-group-inline">
+                    <label>2.8 Ex-Serviceman / पूर्व सेवाकर्मी *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="exServiceman" value="No" required> No / नहीं</label>
+                        <label><input type="radio" name="exServiceman" value="Yes"> Yes / हाँ</label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group radio-group-inline">
+                    <label>2.9 EWS / आर्थिक रूप से कमजोर वर्ग *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ews" value="No" required> No / नहीं</label>
+                        <label><input type="radio" name="ews" value="Yes"> Yes / हाँ</label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="religion">2.10 Religion / धर्म *</label>
+                    <select id="religion" required>
+                        <option value="">--Select One--</option>
+                        <option value="Hinduism">Hinduism / हिन्दू</option>
+                        <option value="Christianity">Christianity / ईसाई</option>
+                        <option value="Islam">Islam / इस्लाम</option>
+                        <option value="Sikhism">Sikhism / सिख</option>
+                        <option value="Buddhism">Buddhism / बुद्ध</option>
+                        <option value="Jainism">Jainism / जैन</option>
+                        <option value="Zoroastrian">Zoroastrian / ज़रथुसट्र पंथी</option>
+                        <option value="Others">Others / अन्य</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>3. Contact Details / संपर्क विवरण</legend>
+                <div class="form-group phone-input-group">
+                    <label for="phoneStdCode">3.1 Phone with STD code / दूरभाष एस टी डी कोड सहित</label>
+                    <input type="text" id="phoneStdCode" class="std-code" placeholder="STD Code">
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number">
+                    <small>(एसटीडी कोड) (दूरभाष संख्या)</small>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">3.2 Mobile Number / मोबाइल नंबर *</label>
+                    <input type="tel" id="mobile" placeholder="10-digit mobile number" pattern="\d{10}" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">3.3 Email Address / ईमेल पता *</label>
+                    <input type="email" id="email" placeholder="e.g. abc@yahoo.com" required>
+                    <div class="error-message"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>4. Permanent Address Details / स्थायी पता विवरण</legend>
+                <div class="form-group">
+                    <label for="permAddress1">4.1 Address Line1 / पता पंक्ति 1 *</label>
+                    <input type="text" id="permAddress1" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="permAddress2">4.2 Address Line2 / पता पंक्ति 2 *</label>
+                    <input type="text" id="permAddress2" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="permAddress3">4.3 Address Line3 / पता पंक्ति 3</label>
+                    <input type="text" id="permAddress3">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="permCity">4.4 City Name / शहर का नाम *</label>
+                    <input type="text" id="permCity" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="permState">4.5 State / राज्य *</label>
+                    <select id="permState" required>
+                        <option value="">--Select One--</option>
+                        </select>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="permDistrict">4.6 District / जिला *</label>
+                    <select id="permDistrict" disabled required>
+                        <option value="">--Select One--</option>
+                        </select>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="permPincode">4.7 Pin Code / पिन कोड *</label>
+                    <input type="text" id="permPincode" pattern="\d{6}" maxlength="6" required>
+                    <div class="error-message"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>5. Correspondence Details / पत्राचार की सूचना</legend>
+                <div class="form-group checkbox-group-inline">
+                    <label><input type="checkbox" id="sameAsPermanent"> Same as Permanent Address / स्थायी पता जैसा</label>
+                </div>
+                <div id="correspondenceAddressFields">
+                    <div class="form-group">
+                        <label for="corrAddress1">5.1 Address Line1 / पता पंक्ति 1 *</label>
+                        <input type="text" id="corrAddress1" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="corrAddress2">5.2 Address Line2 / पता पंक्ति 2 *</label>
+                        <input type="text" id="corrAddress2" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="corrAddress3">5.3 Address Line3 / पता पंक्ति 3</label>
+                        <input type="text" id="corrAddress3">
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="corrCity">5.4 City Name / शहर का नाम *</label>
+                        <input type="text" id="corrCity" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="corrState">5.5 State / राज्य *</label>
+                        <select id="corrState" required>
+                            <option value="">--Select One--</option>
+                            </select>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="corrDistrict">5.6 District / जिला *</label>
+                        <select id="corrDistrict" disabled required>
+                            <option value="">--Select One--</option>
+                            </select>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="corrPincode">5.7 Pin Code / पिन कोड *</label>
+                        <input type="text" id="corrPincode" pattern="\d{6}" maxlength="6" required>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>6. Educational / Qualification Details / शैक्षिक / योग्यता का विवरण</legend>
+                <div class="form-group">
+                    <label for="highestQualification">6.1 Highest Educational Qualification / उच्चतम शैक्षिक योग्यता *</label>
+                    <select id="highestQualification" required>
+                        <option value="">--Select One--</option>
+                        <option value="10+ITI recognized">10+ITI recognized</option>
+                        <option value="10+2">10+2</option>
+                        <option value="NCVT - DP & CS / COPA">NCVT - DP & CS / COPA</option>
+                        <option value="Graduation or Higher">Graduation or Higher</option>
+                        <option value="Polytechnic Diploma">Polytechnic Diploma</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="yearOfPassing">6.2 Year of Passing / उत्तीर्ण वर्ष *</label>
+                    <input type="number" id="yearOfPassing" min="1900" max="2025" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="experienceYears">6.3 If direct, experience in years / यदि डायरेक्ट, वर्षों का अनुभव</label>
+                    <input type="number" id="experienceYears" min="0">
+                    <small>(Only applicable if "Applied As: Direct Candidate" is selected)</small>
+                    <div class="error-message"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>7. Identification Details / पहचान की सूचना</legend>
+                <div class="form-group">
+                    <label for="aadharNumber">7.1 Aadhar Card Number / आधार कार्ड संख्या</label>
+                    <input type="text" id="aadharNumber" pattern="\d{12}" maxlength="12">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="apaarId">7.2 Apaar ID / अपार आईडी *</label>
+                    <input type="text" id="apaarId" required>
+                    <a href="https://www.abc.gov.in/apaar-id" target="_blank" class="apaar-link">Click here to generate Apaar Id</a>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group file-upload-group">
+                    <label for="uploadPhoto">7.3 Upload Photo / फोटो अपलोड करें *</label>
+                    <input type="file" id="uploadPhoto" accept="image/jpeg,image/gif,image/png" required>
+                    <small>( JPG,JPEG,GIF,PNG image with size upto 50 KB )</small>
+                    <div class="image-preview" id="photoPreview">No Image Selected</div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group file-upload-group">
+                    <label for="uploadSignature">7.4 Upload Signature / हस्ताक्षर अपलोड करें *</label>
+                    <input type="file" id="uploadSignature" accept="image/jpeg,image/gif,image/png" required>
+                    <small>( JPG,JPEG,GIF,PNG image with size upto 50 KB )</small>
+                    <div class="image-preview" id="signaturePreview">No Image Selected</div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group file-upload-group">
+                    <label for="uploadThumbImpression">7.5 Upload left hand thumb impression / बांए हाथ के अंगूठे का निशान अपलोड करें *</label>
+                    <input type="file" id="uploadThumbImpression" accept="image/jpeg,image/gif,image/png" required>
+                    <small>( JPG,JPEG,GIF,PNG image with size upto 50 KB )</small>
+                    <div class="image-preview" id="thumbPreview">No Image Selected</div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="distinguishingMark">7.6 Visible Distinguishing Mark / स्पष्ट पहचान चिन्ह *</label>
+                    <input type="text" id="distinguishingMark" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group captcha-group">
+                    <label>Please enter the following number you see into the textbox below. *</label>
+                    <span class="captcha-display" id="captchaDisplay"></span>
+                    <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required>
+                    <div class="error-message"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>8. Declaration / घोषणा</legend>
+                <div class="form-group declaration">
+                    <input type="checkbox" id="declaration" required>
+                    <label for="declaration">This is to certify that all the information submitted by me in this Online Registration Application Form is true and correct to the best of my knowledge and belief. If any information, furnished by me in this Online Registration Application Form, submitted by me is found to be incorrect, fake, misleading or illegal at any point of time, I will be solely responsible for any financial, social or legal action that may be taken against me by NIELIT at any point of time. / यह प्रमाणित किया जाता है कि मेरे द्वारा ऑनलाइन पंजीकरण आवेदन प्रपत्र में दी गई सूचना मेरे ज्ञान विश्वास से सत्य व सही है। ऑनलाइन पंजीकरण आवेदन प्रपत्र में यदि मेरे द्वारा प्रदत्त सूचना किसी भी समय त्रुटिपूर्ण, जाली, भ्रामक व अवैध पायी जाती है तो नाइलिट द्वारा मेरे विरुद्ध किसी भी प्रकार की वित्तीय, सामाजिक व वैधानिक कार्यवाई की जा सकती है जिसके लिए मैं पूर्णरूप से उत्तरदाई रहूँगा।</label>
+                    <div class="error-message"></div>
+                </div>
+            </fieldset>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+
+    <script src="olevel.js"></script>
+</body>
+</html>

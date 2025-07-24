@@ -1,0 +1,465 @@
+/* General Body and Container Styling */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    /* background-color: #eef2f6; /* Light, calm background - इसे अब हटा दिया गया है या कमेंट कर दिया गया है */
+
+    /* ----- ICIOT.JPG इमेज के लिए बैकग्राउंड कोड ----- */
+    background-image: url('icit.jpg'); /* आपकी इमेज फ़ाइल का नाम */
+    background-size: cover; /* इमेज को पूरे बैकग्राउंड में फैलाने के लिए */
+    background-repeat: no-repeat; /* इमेज को दोहराने से रोकने के लिए */
+    background-attachment: fixed; /* इमेज को स्क्रॉल करने पर स्थिर रखने के लिए */
+    background-position: center center; /* इमेज को केंद्र में रखने के लिए */
+    /* ----- बैकग्राउंड इमेज कोड यहाँ समाप्त होता है ----- */
+
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #333; /* Darker text for readability */
+    line-height: 1.6;
+    body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    /* background-color: #eef2f6; /* इस लाइन को कमेंट कर दें या हटा दें, क्योंकि आप अब इमेज बैकग्राउंड चाहते हैं */
+
+    background-image: url('icit.jpg'); /* सही पाथ सुनिश्चित करें */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #333;
+    line-height: 1.6;
+}
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px 50px; /* More generous padding */
+    border-radius: 12px; /* Softer, more modern corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Deeper, softer shadow */
+    max-width: 950px; /* Slightly wider for better content flow */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Header and Notes */
+h1 {
+    text-align: center;
+    color: #1a237e; /* Deep blue for heading */
+    margin-bottom: 30px;
+    font-size: 2.2em; /* Slightly larger heading */
+    font-weight: 600; /* Medium bold */
+    letter-spacing: -0.5px;
+}
+
+.mandatory-note {
+    text-align: right;
+    color: #e74c3c; /* Red for mandatory notes */
+    font-weight: 600;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+
+/* Form Structure */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* More space between fieldsets */
+}
+
+fieldset {
+    border: 1px solid #e0e0e0; /* Lighter border for sections */
+    border-radius: 8px; /* Consistent rounded corners */
+    padding: 25px 30px; /* More padding inside fieldsets */
+    background-color: #fcfdff; /* Very subtle background for sections */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+fieldset:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle hover effect */
+}
+
+legend {
+    font-size: 1.5em; /* Larger legend */
+    font-weight: 700; /* Bolder legend */
+    color: #2c3e50; /* Darker tone for legends */
+    padding: 0 15px;
+    margin-left: -15px; /* Adjust to align well */
+    background-color: #ffffff; /* Match container background */
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px; /* More space between form groups */
+    position: relative; /* For error messages positioning */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #444;
+    font-size: 1em;
+}
+
+.form-group label[for]:after {
+    content: " *";
+    color: #e74c3c; /* Consistent red for mandatory asterisk */
+    font-weight: bold;
+}
+
+/* Input Fields and Selects */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 24px); /* Account for padding and border */
+    padding: 12px; /* More vertical padding */
+    border: 1px solid #c9d6df; /* Softer border color */
+    border-radius: 6px; /* Slightly more rounded */
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    background-color: #ffffff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Vibrant blue on focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Soft focus ring */
+}
+
+.form-group select {
+    /* Style for dropdown arrows */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+}
+
+.form-group select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    color: #6c757d;
+}
+
+
+/* Radio and Checkbox Groups */
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* More space between options */
+    align-items: center;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px; /* Space between input and label */
+    transform: scale(1.2); /* Slightly larger checkboxes/radios */
+    cursor: pointer;
+}
+
+.radio-group label,
+.checkbox-group label {
+    font-weight: normal;
+    margin-bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: #555;
+}
+
+/* Specific Input Group Styling */
+.name-input-group, .phone-input-group {
+    display: flex;
+    gap: 15px; /* Space between elements in group */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.name-input-group select {
+    flex-shrink: 0;
+    width: 120px; /* Slightly wider for prefix dropdown */
+}
+
+.name-input-group input {
+    flex-grow: 1;
+    min-width: 180px; /* Ensure input doesn't get too small */
+}
+
+.phone-input-group .std-code {
+    width: 90px; /* Fixed width for STD code */
+    flex-shrink: 0;
+}
+
+.phone-input-group input[type="tel"] {
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+small {
+    display: block;
+    color: #7a8a9a; /* Softer color for small text */
+    margin-top: 6px;
+    font-size: 0.88em;
+    padding-left: 5px; /* Slight indent */
+}
+
+.apaar-link {
+    display: inline-block; /* Changed to inline-block for better flow */
+    margin-top: 12px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.apaar-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* File Upload and Image Previews */
+.file-upload-group input[type="file"] {
+    padding: 8px;
+    border: 1px solid #c9d6df;
+    border-radius: 6px;
+    background-color: #f8f9fa; /* Light background for file input */
+    width: auto;
+    cursor: pointer;
+}
+
+.image-preview {
+    border: 2px dashed #a7b9c9; /* Dashed border for preview area */
+    background-color: #f0f4f7; /* Light background */
+    min-height: 120px;
+    width: 180px; /* Standard width for image preview */
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a0a0a0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+    font-size: 0.9em;
+    overflow: hidden; /* Ensure image fits */
+}
+
+/* CAPTCHA Styling */
+.captcha-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between captcha display and input */
+    flex-wrap: wrap;
+}
+
+.captcha-display {
+    border: 1px solid #a7b9c9;
+    background-color: #eef2f6; /* Match body background */
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 1.5em; /* Larger, clearer CAPTCHA text */
+    font-weight: bold;
+    color: #2c3e50; /* Stronger color for CAPTCHA */
+    min-width: 120px;
+    text-align: center;
+    user-select: none; /* Prevent selection of CAPTCHA text */
+    letter-spacing: 2px; /* Add some spacing */
+}
+
+.captcha-group input[type="text"] {
+    flex-grow: 1;
+    max-width: 250px; /* Limit input width */
+}
+
+/* Declaration Checkbox */
+.declaration {
+    display: flex;
+    align-items: flex-start; /* Align checkbox to the top of text */
+}
+
+.declaration input[type="checkbox"] {
+    margin-top: 5px; /* Align with text baseline */
+    margin-right: 15px; /* More space */
+    flex-shrink: 0; /* Don't let it shrink */
+}
+
+.declaration label {
+    font-weight: normal;
+    color: #555;
+    font-size: 0.95em;
+    cursor: pointer;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background-color: #28a745; /* Green for success/submit */
+    color: white;
+    padding: 15px 30px; /* More padding */
+    border: none;
+    border-radius: 8px; /* More rounded */
+    font-size: 1.2em; /* Larger font */
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 40px; /* More space above button */
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2); /* Soft shadow for button */
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0); /* Press down effect */
+    box-shadow: 0 2px 5px rgba(40, 167, 69, 0.2);
+}
+
+/* Error Styling for Validation */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #e74c3c; /* Red border for errors */
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2); /* Soft red focus ring */
+}
+
+.form-group .error-message {
+    color: #e74c3c; /* Red text for error messages */
+    font-size: 0.8em; /* Slightly smaller font for messages */
+    margin-top: 5px;
+    display: none; /* Hidden by default, shown by JS */
+    font-weight: 500;
+    padding-left: 5px;
+}
+
+.form-group.error .error-message {
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 20px; /* Adjust padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    legend {
+        font-size: 1.3em;
+        padding: 0 10px;
+        margin-left: -10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="date"],
+    .form-group input[type="number"],
+    .form-group select,
+    .form-group textarea {
+        width: calc(100% - 20px); /* Adjust for padding on small screens */
+        padding: 10px;
+    }
+
+    .name-input-group,
+    .phone-input-group,
+    .radio-group,
+    .checkbox-group,
+    .captcha-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px; /* Reduced gap for vertical stacking */
+    }
+
+    .name-input-group select,
+    .phone-input-group .std-code {
+        width: 100%;
+    }
+
+    .name-input-group input,
+    .phone-input-group input {
+        width: 100%;
+    }
+
+    .image-preview {
+        width: 100%;
+        max-width: 160px; /* Maintain reasonable size */
+        min-height: 100px;
+    }
+
+    .captcha-display {
+        min-width: 100px;
+        font-size: 1.3em;
+    }
+
+    .captcha-group input[type="text"] {
+        max-width: 100%;
+    }
+
+    button[type="submit"] {
+        padding: 12px 20px;
+        font-size: 1.1em;
+        margin-top: 30px;
+    }
+}
+
+/* Even smaller screens (e.g., old phones) */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    legend {
+        font-size: 1.2em;
+        padding: 0 8px;
+        margin-left: -8px;
+    }
+
+    fieldset {
+        padding: 15px 20px;
+    }
+
+    .form-group label {
+        margin-bottom: 6px;
+        font-size: 0.95em;
+    }
+}
