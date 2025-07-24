@@ -1,0 +1,167 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIELIT Enrollment Form</title>
+  <link rel="stylesheet" href="from.css" />
+</head>
+<body>
+
+  <h2>NIELIT CCC Enrollment Form</h2>
+  <form>
+    <div id="rollNoDisplay" style="font-weight: bold; color: green; margin-top: 20px;"></div>
+    <div class="section">
+      <label>Online Reference Number for Enrollment with NIELIT/Accreditation/Extension Center *</label>
+      <select>
+        <option>No / नहीं</option>
+        <option>Yes / हां</option>
+      </select>
+
+      <label>1.1 Whether Applied Previously in CCC Examination *</label>
+      <select>
+        <option>No / नहीं</option>
+        <option>Yes / हां</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <h3>2. Applicant's Personal Details</h3>
+     <label for="fullName">2.1 Applicant's Full Name *</label>
+<input type="text" id="fullName" name="fullName" placeholder="Full name as per certificate" />
+
+
+      <label>2.2 Care Of *</label>
+      <select>
+        <option>Parents / माता पिता</option>
+        <option>Guardian / संरक्षक</option>
+      </select>
+
+      <label>2.2.1 Father's Name *</label>
+      <input type="text" placeholder="Father's Full Name" />
+
+      <label>2.2.2 Mother's Name *</label>
+      <input type="text" placeholder="Mother's Full Name" />
+
+      <label>2.3 Gender *</label>
+      <select><option>--Select Gender--</option></select>
+
+      <label>2.4 Date of Birth *</label>
+      <input type="text" placeholder="01-Jan-1990" />
+
+      <label>2.5 Category *</label>
+      <select><option>--Select One--</option></select>
+
+      <label>2.6 Occupation *</label>
+      <select><option>--Select One--</option></select>
+
+      <label>2.7 Disability *</label>
+      <select>
+        <option>No / नहीं</option>
+        <option>Yes / हां</option>
+      </select>
+
+      <label>2.8 EWS *</label>
+      <select>
+        <option>No / नहीं</option>
+        <option>Yes / हां</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <h3>3. Contact Details</h3>
+      <label>Phone with STD Code</label>
+      <input type="text" />
+
+      <label>Mobile *</label>
+      <input type="text" placeholder="+91" />
+
+      <label>Email *</label>
+      <input type="email" />
+    </div>
+
+    <div class="section">
+      <h3>4. Address Details</h3>
+      <label>Address Line 1 *</label>
+      <input type="text" />
+
+      <label>Address Line 2 *</label>
+      <input type="text" />
+
+      <label>Address Line 3</label>
+      <input type="text" />
+
+      <label>City Name *</label>
+      <input type="text" />
+
+      <label>State *</label>
+      <select><option>--Select One--</option></select>
+
+      <label>District *</label>
+      <select><option>--Select One--</option></select>
+
+      <label>Pin Code *</label>
+      <input type="text" />
+    </div>
+
+    <div class="section">
+      <h3>5. Educational Qualification</h3>
+      <label>Highest Educational Qualification *</label>
+      <select><option>--Select One--</option></select>
+
+      <label>Year of Passing *</label>
+      <input type="text" />
+    </div>
+
+    <div class="section">
+      <h3>6. Examination Details</h3>
+      <label>Applied As *</label>
+      <select>
+        <option>Direct / सीधा</option>
+        <option>Institute / संस्थान</option>
+      </select>
+
+      <label>Applied for Examination *</label>
+      <select><option>--Select Exam Cycle--</option></select>
+      <select><option>--Select Exam Name--</option></select>
+
+      <label>Examination Location 1 *</label>
+      <select><option>--Select State--</option></select>
+      <select><option>--Select Location--</option></select>
+
+      <label>Examination Location 2 *</label>
+      <select><option>--Select State--</option></select>
+      <select><option>--Select Location--</option></select>
+    </div>
+
+    <div class="section">
+      <h3>7. Identification Details</h3>
+      <label>Aadhar Card Number</label>
+      <input type="text" />
+
+      <label>Apaar ID *</label>
+      <input type="text" placeholder="Click here to generate Apaar ID" />
+
+      <label>Upload Photo *</label>
+      <input type="file" accept="image/jpeg,image/jpg" />
+
+      <label>Upload Signature *</label>
+      <input type="file" accept="image/jpeg,image/jpg" />
+
+      <label>Upload Left Thumb Impression *</label>
+      <input type="file" accept="image/jpeg,image/jpg" />
+    </div>
+
+    <div class="section">
+      <h3>8. Declaration / घोषणा</h3>
+      <textarea rows="6">
+* I , hereby declare that the particulars submitted by me in the online examination application form of CCC are true...
+मैं , यह घोषणा करता/ करती  हूँ कि कंप्यूटर अवधारणाओं पर कोर्स परीक्षा हेतु ऑनलाइन आवेदन फार्म में मेरे द्वारा वर्णित समस्त जानकारी मेरे ज्ञान और विश्वास से सत्य है...
+      </textarea>
+    </div>
+
+    <button  id= "id"type="submit">Submit</button>
+  </form>
+  <script  src="from.js"></script>
+</body>
+</html>

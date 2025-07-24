@@ -76,3 +76,105 @@ footer {
   color: white;
   margin-top: 40px;
 }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      background: #004080;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #333;
+      padding: 10px;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .navbar a,
+    .dropdown-btn,
+    .submenu-btn {
+      color: white;
+      padding: 8px 12px;
+      text-decoration: none;
+      background: #444;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content,
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #555;
+      z-index: 1;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .has-submenu {
+      position: relative;
+    }
+
+    .has-submenu:hover .submenu {
+      display: block;
+      left: 100%;
+      top: 0;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .dropdown-content,
+      .submenu {
+        position: static;
+      }
+
+      .dropdown:hover .dropdown-content,
+      .has-submenu:hover .submenu {
+        display: none;
+      }
+
+      .dropdown-btn,
+      .submenu-btn {
+        width: 100%;
+        text-align: left;
+      }
+    }

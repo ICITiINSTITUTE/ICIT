@@ -7,13 +7,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <header>
+ <header>
     <h1>WELCOME TO ICIT INSTITUTE</h1>
-     
   </header>
-    
-  <nav class="navbar">
+  <!-- Loader Page -->
+<div id="loader">
+  <div class="loader-content">
+    <img src="icit.jpg" alt="ICIT Logo" />
+    <h2>Welcome to ICIT Computer Institute</h2>
+  </div>
+</div>
+
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <nav class="navbar" id="navbar">
     <!-- Home Dropdown -->
     <div class="dropdown">
       <button class="dropdown-btn">Home</button>
@@ -64,13 +73,13 @@
 
     <a href="contact.html">Contact</a>
   </nav>
-         <section id="home">
-    <h2 >ICIT computer Institute</h2>
-    
 
+  <section id="home">
+    <h2>ICIT computer Institute</h2>
     <p id="ak">Welcome to ICIT Computer Institute — your trusted place for learning computer skills and digital technology.</p>
   </section>
-   <section id="about">
+
+  <section id="about">
     <h2>About ICIT Computer Institute</h2>
     <p><strong>ICIT Computer Institute</strong> एक अग्रणी कंप्यूटर शिक्षण संस्थान है जो छात्रों को आधुनिक तकनीक, आईटी ज्ञान और डिजिटल कौशल में प्रशिक्षित करता है।</p>
     <p><strong>ICIT</strong> offers professional courses like DCA, ADCA, Tally, Programming (C, C++, Python), Web Development (HTML, CSS, JavaScript, PHP), and many more.</p>
@@ -105,7 +114,6 @@
   <footer>
     <p>&copy; 2025 ICIT Computer. All rights reserved.</p>
   </footer>
-
 
 <script src="script.js"></script>
 </body>
