@@ -326,7 +326,7 @@ footer {
     margin: 10px;
     padding: 15px;
   }
-} <style>
+} 
   /* Loader Styling */
   #loader {
     position: fixed;
@@ -353,5 +353,180 @@ footer {
     color: #004080;
     text-align: center;
   }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0066cc;
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* मोबाइल स्क्रीन के लिए */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #0066cc;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+/* ✅ Minimal Responsive CSS */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 10px 20px;
+      color: white;
+      background-color: #0066cc;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #0066cc;
+        width: 100%;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    .dropdown-content, .submenu {
+      position: static;
+    }
+    /* Basic Navbar Styling */
+.navbar {
+  background-color: #0066cc;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a, .dropdown-btn {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #0066cc;
+  color: white;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #004080;
+  padding: 10px;
+  z-index: 999;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  color: white;
+  padding: 5px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #0066cc;
+    width: 100%;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a, .dropdown-btn {
+    padding: 12px;
+    text-align: left;
+  }
+
+  .dropdown-content {
+    position: static;
+    background-color: #0055aa;
+  }
+}
 
 
