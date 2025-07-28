@@ -39,7 +39,7 @@ document.getElementById("enrollmentForm").addEventListener("submit", function(e)
     apaarID: document.getElementById("apaarID").value,
   };
 
-  fetch("YOUR_WEB_APP_URL", {
+  fetch("https://script.google.com/macros/s/AKfycbzQ3qcpgb752pB1lsXutDuTkNmRGkPQeNPWwGp_Ugt6eHJwuJPgBi_4Gjmh-nySoVHt/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
