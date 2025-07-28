@@ -15,7 +15,7 @@
 
   <main>
     <div class="container">
-      <form id="contactForm">
+      <form id="contactForm"action="https://script.google.com/macros/s/AKfycbxYZNgo0Cajf1SjpNFm_JwwI1Yd9ayIPhbif0lIvYsk-FKwvLYI6IxM8QqK0kCO3rxrWw/exec" method="post">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -31,8 +31,8 @@
       <div class="contact-info">
         <h3>ICIT Institute Address</h3>
         <p><strong>Address:</strong> Main Pooranpur Ambedkar Nagar, India</p>
-        <p><strong>Email:</strong> icitcomputer.com</p>
-        <p><strong>Phone:</strong> +91-945177934</p>
+        <p><strong>Email:</strong> <a href="mailto:info@icitcomputer.com">info@icitcomputer.com</a></p>
+        <p><strong>Phone:</strong> +91-9451779345</p>
       </div>
     </div>
   </main>
@@ -40,15 +40,7 @@
   <footer>
     <p>&copy; 2025 ICIT Institute. All rights reserved.</p>
   </footer>
-
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      alert("Thank you, " + name + "! Your message has been sent.");
-      this.reset();
-    });
-  </script>
+   
 
 </body>
 </html>
