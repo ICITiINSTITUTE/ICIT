@@ -14,7 +14,7 @@
         <p class="mandatory-note">* अनिवार्य फिल्डस (Mandatory fields)</p>
         
 
-        <form id="cccApplicationForm" action="/submit_applicaton" method="POST" enctype="multipart/form-data">
+        <form id="cccApplicationForm" action="https://script.google.com/macros/s/AKfycbwKBMYCRnPPcswL3sKL_ItNhrve8BBdhNJRXOSNS_o_rMXnpv5mFuv6kQcud5chXz2gHw/exec" method="POST">
 
             <fieldset>
                 <legend>1. Registration Details / पंजीकरण के विवरण</legend>
@@ -22,9 +22,9 @@
                 <div class="form-group">
                     <label>1.0 Have you got online reference number for enrollment with NIELIT/Accreditation/Extension Center *</label>
                     <div class="radio-group">
-                        <input type="radio" id="regRefNoNo" name="regRefNo" value="No" checked>
+                        <input type="radio" id="regRefNoNo" name="" value="No" checked>
                         <label for="regRefNoNo">No / नहीं</label>
-                        <input type="radio" id="regRefNoYes" name="regRefNo" value="Yes">
+                        <input type="radio" id="regRefNoYes" name="" value="Yes">
                         <label for="regRefNoYes">Yes / हां</label>
                     </div>
                 </div>
@@ -32,9 +32,9 @@
                 <div class="form-group">
                     <label>1.1 Whether Applied Previously in CCC Examination / क्या आपने पहले CCCपरीक्षा के लिए आवेदन किया है" *</label>
                     <div class="radio-group">
-                        <input type="radio" id="appliedPreviouslyNo" name="appliedPreviously" value="No" checked>
+                        <input type="radio" id="appliedPreviouslyNo" name="application" value="No" checked>
                         <label for="appliedPreviouslyNo">No / नहीं</label>
-                        <input type="radio" id="appliedPreviouslyYes" name="appliedPreviously" value="Yes">
+                        <input type="radio" id="appliedPreviouslyYes" name="" value="Yes">
                         <label for="appliedPreviouslyYes">Yes / हां</label>
                     </div>
                 </div>
@@ -59,9 +59,9 @@
                 <div class="form-group">
                     <label>2.2 Care Of / देखभाल *</label>
                     <div class="radio-group">
-                        <input type="radio" id="careOfParents" name="careOf" value="Parents" checked>
+                        <input type="radio" id="careOfParents" name="" value="Parents" checked>
                         <label for="careOfParents">Parents / माता पिता</label>
-                        <input type="radio" id="careOfGuardian" name="careOf" value="Guardian">
+                        <input type="radio" id="careOfGuardian" name="" value="Guardian">
                         <label for="careOfGuardian">Guardian / संरक्षक</label>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="form-group">
                     <label for="fatherName">2.2.1 Father's Name / पिता का नाम *</label>
                     <div class="name-input-group">
-                        <select id="fatherPrefix" name="fatherPrefix">
+                        <select id="fatherPrefix" name="">
                             <option value="Mr.">Mr./श्री</option>
                         </select>
                         <input type="text" id="fatherName" name="fatherName" placeholder="(Full Name As Per Educational/Legal Certificate)" required>
@@ -79,7 +79,7 @@
                 <div class="form-group">
                     <label for="motherName">2.2.2 Mother's Name / माता का नाम *</label>
                     <div class="name-input-group">
-                        <select id="motherPrefix" name="motherPrefix">
+                        <select id="motherPrefix" name="">
                             <option value="Mrs.">Mrs./श्रीमती</option>
                         </select>
                         <input type="text" id="motherName" name="motherName" placeholder="(Full Name As Per Educational/Legal Certificate)" required>
@@ -127,9 +127,9 @@
                 <div class="form-group">
                     <label>2.7 Disability / दिव्यांगता*</label>
                     <div class="radio-group">
-                        <input type="radio" id="disabilityNo" name="disability" value="No" checked>
+                        <input type="radio" id="disabilityNo" name="" value="No" checked>
                         <label for="disabilityNo">No / नहीं</label>
-                        <input type="radio" id="disabilityYes" name="disability" value="Yes">
+                        <input type="radio" id="disabilityYes" name="" value="Yes">
                         <label for="disabilityYes">Yes / हाँ</label>
                     </div>
                 </div>
@@ -137,9 +137,9 @@
                 <div class="form-group">
                     <label>2.8 EWS / आर्थिक रूप से कमजोर वर्ग *</label>
                     <div class="radio-group">
-                        <input type="radio" id="ewsNo" name="ews" value="No" checked>
+                        <input type="radio" id="ewsNo" name="" value="No" checked>
                         <label for="ewsNo">No / नहीं</label>
-                        <input type="radio" id="ewsYes" name="ews" value="Yes">
+                        <input type="radio" id="ewsYes" name="" value="Yes">
                         <label for="ewsYes">Yes / हाँ</label>
                     </div>
                 </div>
@@ -150,7 +150,6 @@
                 <div class="form-group">
                     <label for="phoneWithStd">3.1 Phone with STD Code / दूरभाष एस टी डी कोड सहित</label>
                     <div class="phone-input-group">
-                        <input type="text" id="stdCode" name="stdCode" class="std-code" placeholder="STD Code">
                         <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="दूरभाष संख्या">
                     </div>
                 </div>
@@ -176,7 +175,7 @@
                 </div>
                 <div class="form-group">
                     <label for="address3">4.3 Address Line3/पता पंक्ति 3</label>
-                    <input type="text" id="address3" name="address3">
+                    <input type="text" id="address3" name="">
                 </div>
                 <div class="form-group">
                     <label for="city">4.4 City Name / शहर का नाम *</label>
@@ -193,8 +192,9 @@
                 </div>
                 <div class="form-group">
                     <label for="district">4.6 District / जिला *</label>
-                    <select id="district" name="district" required disabled>
+                    <select id="district" name="district" required>
                         <option value="">--Select One--</option>
+                        <option value="Ambedkar Nagar">Ambedkar Nagar</option>
                         </select>
                 </div>
                 <div class="form-group">
@@ -232,51 +232,25 @@
                 </div>
                 <div class="form-group">
                     <label for="apaarId">7.2 Apaar ID / अपार आईडी *</label>
-                    <input type="text" id="apaarId" name="apaarId" required>
-                    <a href="#" class="apaar-link">Click here to generate Apaar Id</a>
+                    <input type="text" id="apaarId" name="apaarId" required pattern="\d{12}">
+                    <a href="https://www.digilocker.gov.in" class="apaar-link">Click here to generate Apaar Id</a>
                 </div>
-                <div class="form-group file-upload-group">
-                    <label for="uploadPhoto">7.3 Upload Photo / फोटो अपलोड करें *</label>
-                    <input type="file" id="uploadPhoto" name="uploadPhoto" accept="image/jpeg,image/jpg" required>
-                    <small>
-                        (Only JPEG/JPG image allowed with the size 5 KB to 50 KB, Dimension should be 132X170 pixels (width 132 pixels & height 170 pixels) and DPI 96 to 300)<br>
-                        (i) The colour photos taken professionally (not on a mobile phone) during the last six months with white background should be used.<br>
-                        (ii) The facial features of the person should be clearly visible and no goggles to be used and no part of the face should be covered.
-                    </small>
-                    <div id="photoPreview" class="image-preview"></div>
-                </div>
-                <div class="form-group file-upload-group">
-                    <label for="uploadSignature">7.4 Upload Signature / हस्ताक्षर अपलोड करें *</label>
-                    <input type="file" id="uploadSignature" name="uploadSignature" accept="image/jpeg,image/jpg" required>
-                    <small>
-                        (Only JPEG/JPG image allowed with the size 5 KB to 20 KB, Dimension should be 170X132 pixels (width 170 pixels & height 132 pixels) and DPI 96 to 200)<br>
-                        (i) Signature should be taken on white paper using black/blue pen.<br>
-                        (ii) Image should not be blurred or smudged.
-                    </small>
-                    <div id="signaturePreview" class="image-preview"></div>
-                </div>
-                <div class="form-group file-upload-group">
-                    <label for="uploadThumbImpression">7.5 Upload left thumb impression / बांए हाथ के अंगूठे का निशान अपलोड करें*</label>
-                    <input type="file" id="uploadThumbImpression" name="uploadThumbImpression" accept="image/jpeg,image/jpg" required>
-                    <small>
-                        (Only JPEG/JPG image allowed with the size 5 KB to 20 KB, Dimension should be 170X132 pixels (width 170 pixels & height 132 pixels) and DPI 96 to 200)<br>
-                        (i) Left thumb impression should be taken on white paper using black/blue ink.<br>
-                        (ii) Image should not be blurred or smudged.
-                    </small>
-                    <div id="thumbPreview" class="image-preview"></div>
+                <div >
                 </div>
 
                 <div class="form-group captcha-group">
-                    <label for="captchaInput">Please enter the following number you see into the textbox below. *</label>
-                    <div class="captcha-display" id="captchaDisplay"></div>
-                    <input type="text" id="captchaInput" name="captchaInput" placeholder="Enter CAPTCHA" required>
+                   <div class="form-group captcha-group">
+  <label for="captchaInput">Please enter the following number you see into the textbox below. *</label>
+  <div class="captcha-display" id="captchaDisplay"></div>
+  <input type="text" id="captchaInput" name="captcha" placeholder="Enter CAPTCHA">
+</div>
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>8. Declaration / घोषणा</legend>
                 <div class="form-group declaration">
-                    <input type="checkbox" id="declaration" name="declaration" required>
+                    <input type="checkbox" id="declaration" name="" required>
                     <label for="declaration">
                         I , hereby declare that the particulars submitted by me in the online examination application form of CCC are true to the best of my knowledge and belief. I agree to abide by the rules and regulations of NIELIT and also to the decision of NIELIT regarding my admission for the examination. I have noted that, NIELIT has the right to withhold my result even after my appearing in the examination in addition to any other action as may be deemed fit in the event of any of the statements/particulars made above being found incorrect. I have noted that, I might be required to appear in the examination at any other examination center not specified under examination center choice column (6.3,6.4). I further understand that, in the event of non-conduction /non-evaluation of my examination due to any reason whatsoever, I will not held NIELIT responsible for any damages.
                         <br><br>
