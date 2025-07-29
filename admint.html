@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>ICIT admit card download</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* --- बैकग्राउंड इमेज जोड़ी गई --- */
+      background-image: url('icit.jpg'); /* सुनिश्चित करें कि icit.jpg उसी फ़ोल्डर में है */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-color: #f0f2f5; /* अगर इमेज लोड न हो तो यह रंग दिखेगा */
+      /* ----------------------------- */
+      text-align: center;
+      padding: 40px;
+      margin: 0; /* ब्राउज़र के डिफ़ॉल्ट मार्जिन को हटाता है */
+    }
+    .container {
+      /* --- कंटेनर को बेहतर बनाया गया --- */
+      background: rgba(255, 255, 255, 0.95); /* सफ़ेद रंग 95% ओपैसिटी के साथ */
+      padding: 25px 40px;
+      border-radius: 15px; /* कोनों को थोड़ा और गोल किया गया */
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* बेहतर शैडो */
+      max-width: 400px;
+      width: 100%;
+    }
+    h2 {
+      color: #0d6efd; /* लोगो से मिलता-जुलता नीला रंग */
+      margin-bottom: 20px;
+    }
+    input, button {
+      padding: 12px;
+      font-size: 16px;
+      margin: 10px 0;
+      width: 100%;
+      box-sizing: border-box; /* पैडिंग और बॉर्डर को चौड़ाई में शामिल करता है */
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #0d6efd; /* आकर्षक नीला रंग */
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0b5ed7; /* हॉवर पर गहरा नीला रंग */
+    }
+    #studentInfo {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #198754; /* गहरा हरा रंग */
+      font-size: 18px;
+    }
+    #message {
+      color: #dc3545; /* गहरा लाल रंग */
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="icit.jpg" alt="ICIT Logo" width="100" style="border-radius: 50%; margin-bottom: 15px; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <h2>ICIT ADMIT CARD DOWNLOAD</h2>
+    <input type="text" id="rollNumber" placeholder="अपना रोल नंबर दर्ज करें"><br>
+    <button onclick="checkStudent()">खोजें</button>
+
+    <div id="studentInfo"></div>
+    <button id="downloadBtn" style="display:none;" onclick="downloadAdmitCard()">Download Admit Card</button>
+
+    <p id="message"></p>
+  </div>
+
+  <script>
+    let admitCardUrl = "";
+
+    async function checkStudent() {
+      const rollNumber = document.getElementById("rollNumber").value.trim();
+      const message = document.getElementById("message");
+      const studentInfo = document.getElementById("studentInfo");
+      const downloadBtn = document.getElementById("downloadBtn");
+
+      message.textContent = "";
+      studentInfo.textContent = "";
+      downloadBtn.style.display = "none";
+
+      if (!rollNumber) {
+        message.textContent = "कृपया अपना रोल नंबर दर्ज करें।";
+        return;
+      }
+
+      // 🔁 कृपया सुनिश्चित करें कि यह URL सही है
+      const scriptURL = "https://script.google.com/macros/s/AKfycbyik1P2RLxfemshFlYDwU63juODx2FtOpRg10MKeuSeZwaaW7zNkNBPLrmGNVfwVS8/exec"; // 🔁 REPLAC
+
+      try {
+        const response = await fetch(`${scriptURL}?roll=${rollNumber}`);
+        const data = await response.json();
+
+        if (data.success) {
+          studentInfo.textContent = `नाम: ${data.name}`;
+          admitCardUrl = data.admitCardUrl;
+          downloadBtn.style.display = "block"; // Changed to block for better layout
+        } else {
+          message.textContent = "यह रोल नंबर मान्य नहीं है।";
+        }
+      } catch (error) {
+        console.error(error);
+        message.textContent = "सर्वर से संपर्क करने में कोई त्रुटि हुई।";
+      }
+    }
+
+    function downloadAdmitCard() {
+      if (admitCardUrl) {
+        window.open(admitCardUrl, "_blank");
+      }
+    }
+  </script>
+</body>
+</html>
