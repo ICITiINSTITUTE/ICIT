@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICITINSTITUE AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the chat application */
+        body {
+            font-family: 'Inter', sans-serif;
+             background-image: url('icit.jpg');
+      background-size: cover;         /* Image will cover full screen */
+      background-position: center;    /* Centered image */
+      background-repeat: no-repeat;   /* No repeat */
+      height: 100vh;                  /* Full height */
+      margin: 0;
+      padding: 0;
+        }
+        /* Scrollbar styling for a more modern look */
+        #chat-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        #chat-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        #chat-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+        #chat-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Typing indicator animation */
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: #9E9E9E;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-of-type(1) {
+            animation-delay: -0.32s;
+        }
+        .typing-indicator span:nth-of-type(2) {
+            animation-delay: -0.16s;
+        }
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1.0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex h-screen items-center justify-center">
+  <h1 style="color: gray;; text-align: center;">Welcome to ICIT</h1>
+    <div class="w-full max-w-2xl h-full md:h-[90vh] flex flex-col bg-white shadow-2xl rounded-lg">
+        <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-t-lg flex items-center justify-between">
+            <h1 class="text-xl font-bold">AI Chat Assistant</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+        </header>
+
+        <div id="chat-container" class="flex-1 p-6 overflow-y-auto">
+            <div class="flex items-start gap-3 mb-6">
+                <div class="bg-purple-600 text-white p-2 rounded-full flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                </div>
+                <div class="bg-gray-200 p-3 rounded-lg max-w-xs md:max-w-md">
+                    <p class="text-sm text-gray-800">welcome to ICITINSTITUE ai computer science</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="typing-indicator" class="p-6 pt-0 hidden">
+             <div class="flex items-start gap-3">
+                <div class="bg-purple-600 text-white p-2 rounded-full flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                </div>
+                <div class="bg-gray-200 p-3 rounded-lg">
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-gray-200 bg-white rounded-b-lg">
+            <form id="chat-form" class="flex items-center gap-3">
+                <input type="text" id="user-input" placeholder="Type your message..." class="flex-1 p-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                <button type="submit" id="send-button" class="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 disabled:bg-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    const chatForm = document.getElementById('chat-form');
+    const userInput = document.getElementById('user-input');
+    const chatContainer = document.getElementById('chat-container');
+    const sendButton = document.getElementById('send-button');
+    const typingIndicator = document.getElementById('typing-indicator');
+    let chatHistory = [];
+
+const predefinedQA = [
+    { question: ['what is computer', 'computer kya hai'], answer: 'कंप्यूटर एक इलेक्ट्रॉनिक डिवाइस है जो डेटा प्रोसेस करता है।' },
+    { question: ['cpu'], answer: 'CPU का पूरा नाम Central Processing Unit है।' },
+    { question: ['types of computer'], answer: 'कंप्यूटर के मुख्य प्रकार हैं: PC, Workstation, Server, Mainframe, Supercomputer, Tablet, Smartphone।' },
+    { question: ['hardware'], answer: 'Hardware कंप्यूटर के वे भाग होते हैं जिन्हें आप छू सकते हैं, जैसे मॉनिटर, कीबोर्ड।' },
+    { question: ['software'], answer: 'Software प्रोग्राम होते हैं जो कंप्यूटर को काम करने योग्य बनाते हैं।' },
+    { question: ['ram'], answer: 'RAM का मतलब Random Access Memory है, जो अस्थायी मेमोरी होती है।' },
+    { question: ['rom'], answer: 'ROM का मतलब Read Only Memory है, जो स्थायी मेमोरी होती है।' },
+    { question: ['input device'], answer: 'Input Devices जैसे कीबोर्ड, माउस आदि डेटा इनपुट करने के लिए होते हैं।' },
+    { question: ['output device'], answer: 'Output Devices जैसे मॉनिटर, प्रिंटर आदि आउटपुट दिखाने के लिए होते हैं।' },
+    { question: ['operating system'], answer: 'Operating System वह सॉफ्टवेयर है जो हार्डवेयर और यूज़र के बीच इंटरफेस बनाता है।' },
+    { question: ['windows'], answer: 'Windows एक प्रसिद्ध ऑपरेटिंग सिस्टम है जिसे Microsoft ने बनाया है।' },
+    { question: ['linux'], answer: 'Linux एक ओपन-सोर्स ऑपरेटिंग सिस्टम है।' },
+    { question: ['binary'], answer: 'Binary system केवल 0 और 1 पर आधारित होता है।' },
+    { question: ['compiler'], answer: 'Compiler एक प्रोग्राम है जो उच्च स्तरीय भाषा को मशीन भाषा में बदलता है।' },
+    { question: ['internet'], answer: 'Internet एक वैश्विक नेटवर्क है जो कंप्यूटरों को जोड़ता है।' },
+    { question: ['modem'], answer: 'Modem एक डिवाइस है जो डेटा को डिजिटल से एनालॉग में और वापस बदलता है।' },
+    { question: ['ip address'], answer: 'IP Address एक यूनिक पहचान है जो इंटरनेट पर हर डिवाइस को दी जाती है।' },
+    { question: ['url'], answer: 'URL का मतलब Uniform Resource Locator है, जो वेबसाइट का पता होता है।' },
+    { question: ['email'], answer: 'Email एक इलेक्ट्रॉनिक संदेश भेजने का तरीका है।' },
+    { question: ['browser'], answer: 'Browser एक एप्लिकेशन है जिससे हम वेबसाइट एक्सेस करते हैं जैसे Chrome, Firefox।' },
+    { question: ['firewall'], answer: 'Firewall एक सुरक्षा प्रणाली है जो नेटवर्क को अनाधिकृत एक्सेस से बचाती है।' },
+    { question: ['cloud computing'], answer: 'Cloud computing एक सेवा है जो इंटरनेट के माध्यम से डेटा स्टोरेज और प्रोसेसिंग प्रदान करती है।' },
+    { question: ['bit'], answer: 'Bit डेटा की सबसे छोटी इकाई होती है।' },
+    { question: ['byte'], answer: '1 Byte = 8 Bits होता है।' },
+    { question: ['kb'], answer: '1 KB = 1024 Bytes होता है।' },
+    { question: ['mb'], answer: '1 MB = 1024 KB होता है।' },
+    { question: ['gb'], answer: '1 GB = 1024 MB होता है।' },
+    { question: ['tb'], answer: '1 TB = 1024 GB होता है।' },
+    { question: ['ssd'], answer: 'SSD (Solid State Drive) एक तेज़ स्टोरेज डिवाइस है।' },
+    { question: ['hdd'], answer: 'HDD (Hard Disk Drive) डेटा स्टोर करने वाला पारंपरिक डिवाइस है।' },
+    { question: ['motherboard'], answer: 'Motherboard कंप्यूटर का मुख्य सर्किट बोर्ड होता है।' },
+    { question: ['keyboard'], answer: 'Keyboard एक इनपुट डिवाइस है जिससे हम टेक्स्ट टाइप करते हैं।' },
+    { question: ['mouse'], answer: 'Mouse एक इनपुट डिवाइस है जो पॉइंटर को कंट्रोल करता है।' },
+    { question: ['monitor'], answer: 'Monitor एक आउटपुट डिवाइस है जो स्क्रीन पर डेटा दिखाता है।' },
+    { question: ['printer'], answer: 'Printer आउटपुट डिवाइस है जो डिजिटल डेटा को पेपर पर प्रिंट करता है।' },
+    { question: ['scanner'], answer: 'Scanner एक इनपुट डिवाइस है जो पेपर डॉक्यूमेंट को डिजिटल बनाता है।' },
+    { question: ['router'], answer: 'Router नेटवर्क को जोड़ने और डेटा ट्रांसफर करने वाला डिवाइस है।' },
+    { question: ['switch'], answer: 'Switch नेटवर्क डिवाइस है जो डाटा को सही डिवाइस तक पहुंचाता है।' },
+    { question: ['bluetooth'], answer: 'Bluetooth एक वायरलेस टेक्नोलॉजी है जो नज़दीकी डिवाइसों को जोड़ती है।' },
+    { question: ['wifi'], answer: 'Wi-Fi वायरलेस नेटवर्क कनेक्शन का माध्यम है।' },
+    { question: ['lan'], answer: 'LAN का मतलब Local Area Network है।' },
+    { question: ['wan'], answer: 'WAN का मतलब Wide Area Network है।' },
+    { question: ['virus'], answer: 'Virus एक प्रकार का मैलवेयर होता है जो कंप्यूटर को नुकसान पहुँचाता है।' },
+    { question: ['antivirus'], answer: 'Antivirus सॉफ़्टवेयर वायरस को पहचानकर हटाता है।' },
+    { question: ['malware'], answer: 'Malware एक दुर्भावनापूर्ण सॉफ़्टवेयर होता है जो सिस्टम को हानि पहुंचाता है।' },
+    { question: ['phishing'], answer: 'Phishing एक धोखाधड़ी तकनीक है जिसमें नकली वेबसाइट से जानकारी चुराई जाती है।' },
+    { question: ['spam'], answer: 'Spam अनचाहा और बार-बार आने वाला ईमेल या मैसेज होता है।' },
+    { question: ['html'], answer: 'HTML का मतलब HyperText Markup Language है, जो वेबसाइट बनाने के लिए उपयोग होती है।' },
+    { question: ['css'], answer: 'CSS का उपयोग वेबसाइट की स्टाइलिंग (डिज़ाइन) के लिए किया जाता है।' },
+    { question: ['javascript'], answer: 'JavaScript एक प्रोग्रामिंग भाषा है जो वेबसाइट को इंटरएक्टिव बनाती है।' },
+    { question: ['programming language'], answer: 'Programming language का उपयोग कंप्यूटर से संवाद करने के लिए किया जाता है।' },
+    { question: ['python'], answer: 'Python एक लोकप्रिय और सिंपल प्रोग्रामिंग भाषा है।' },
+    { question: ['java'], answer: 'Java एक ऑब्जेक्ट ओरिएंटेड प्रोग्रामिंग भाषा है।' },
+    { question: ['c language'], answer: 'C एक पुरानी लेकिन बहुत ही पावरफुल प्रोग्रामिंग भाषा है।' },
+    { question: ['ai'], answer: 'AI यानी Artificial Intelligence, मशीनों को बुद्धिमान बनाता है।' },
+    { question: ['ml'], answer: 'ML यानी Machine Learning, मशीनों को डेटा से सीखने की क्षमता देता है।' },
+    { question: ['deep learning'], answer: 'Deep Learning मशीन लर्निंग का ही एक भाग है जो न्यूरल नेटवर्क पर आधारित होता है।' },
+    { question: ['network'], answer: 'Network कंप्यूटरों को जोड़ने का माध्यम है।' },
+    { question: ['domain name'], answer: 'Domain Name वेबसाइट का एड्रेस होता है, जैसे google.com।' },
+    { question: ['hosting'], answer: 'Hosting वह सेवा है जो वेबसाइट को इंटरनेट पर उपलब्ध कराती है।' },
+    { question: ['server'], answer: 'Server वह कंप्यूटर है जो अन्य कंप्यूटरों को सेवाएं देता है।' },
+    { question: ['client'], answer: 'Client वह डिवाइस है जो सर्वर से सेवाएं प्राप्त करती है।' },
+    { question: ['encryption'], answer: 'Encryption डाटा को सुरक्षित रखने की प्रक्रिया है।' },
+    { question: ['decryption'], answer: 'Decryption एन्क्रिप्टेड डाटा को फिर से पढ़ने योग्य बनाता है।' },
+    { question: ['captcha'], answer: 'CAPTCHA का उपयोग यह जांचने के लिए होता है कि उपयोगकर्ता इंसान है या बॉट।' },
+    { question: ['database'], answer: 'Database डेटा को संग्रहित और प्रबंधित करने का तरीका है।' },
+    { question: ['sql'], answer: 'SQL एक भाषा है जिसका उपयोग डेटाबेस को मैनेज करने में होता है।' },
+    { question: ['ui'], answer: 'UI यानी User Interface, जो उपयोगकर्ता और सॉफ़्टवेयर के बीच इंटरफेस होता है।' },
+    { question: ['ux'], answer: 'UX यानी User Experience, जो उपयोगकर्ता के अनुभव को दर्शाता है।' },
+    { question: ['booting'], answer: 'Booting कंप्यूटर स्टार्ट होने की प्रक्रिया है।' },
+    { question: ['bios'], answer: 'BIOS कंप्यूटर के हार्डवेयर को स्टार्ट करता है।' },
+    { question: ['backup'], answer: 'Backup डेटा की कॉपी होती है जो डेटा लॉस से बचाती है।' },
+    { question: ['restore'], answer: 'Restore प्रक्रिया से बैकअप डेटा को वापस लाया जाता है।' },
+    { question: ['pdf'], answer: 'PDF का मतलब Portable Document Format है।' },
+    { question: ['excel'], answer: 'Excel एक spreadsheet प्रोग्राम है जिसका उपयोग डेटा एनालिसिस में होता है।' },
+    { question: ['powerpoint'], answer: 'PowerPoint एक प्रेज़ेंटेशन टूल है।' },
+    { question: ['ms word'], answer: 'MS Word एक वर्ड प्रोसेसिंग सॉफ्टवेयर है।' },
+    { question: ['shortcut'], answer: 'Shortcut कीबोर्ड के शॉर्ट कमांड्स होते हैं जैसे Ctrl+C।' },
+    { question: ['ctrl c'], answer: 'Ctrl + C से चयनित आइटम को कॉपी किया जाता है।' },
+    { question: ['ctrl v'], answer: 'Ctrl + V से कॉपी किए गए आइटम को पेस्ट किया जाता है।' },
+    { question: ['ctrl x'], answer: 'Ctrl + X से कट किया जाता है।' },
+    { question: ['ctrl z'], answer: 'Ctrl + Z से पिछला काम Undo किया जाता है।' },
+    { question: ['ctrl s'], answer: 'Ctrl + S से फाइल को सेव किया जाता है।' },
+    { question: ['ctrl p'], answer: 'Ctrl + P से प्रिंटिंग होती है।' },
+    { question: ['ctrl a'], answer: 'Ctrl + A से सब कुछ सेलेक्ट होता है।' },
+    { question: ['ctrl f'], answer: 'Ctrl + F से पेज पर सर्च किया जाता है।' },
+    { question: ['ctrl n'], answer: 'Ctrl + N से नया डॉक्युमेंट खुलता है।' },
+    { question: ['ctrl o'], answer: 'Ctrl + O से फाइल ओपन होती है।' },
+    { question: ['ctrl w'], answer: 'Ctrl + W से टैब या विंडो बंद होती है।' },
+    { question: ['ctrl t'], answer: 'Ctrl + T से नया ब्राउज़र टैब खुलता है।' },
+    { question: ['alt f4'], answer: 'Alt + F4 से करंट विंडो पूरी तरह से बंद होती है।' },
+    { question: ['task manager'], answer: 'Task Manager से आप प्रोग्राम्स और परफॉर्मेंस मॉनिटर कर सकते हैं।' },
+    { question: ['device manager'], answer: 'Device Manager से आप कंप्यूटर के सभी हार्डवेयर देख सकते हैं।' },
+    { question: ['safe mode'], answer: 'Safe Mode Windows का डिबग मोड होता है जो बिना थर्ड पार्टी प्रोग्राम के चलता है।' },
+    { question: ['command prompt'], answer: 'Command Prompt Windows का text-based टूल है।' },
+    { question: ['ipconfig'], answer: 'ipconfig नेटवर्क की जानकारी दिखाने वाली कमांड है।' },
+    { question: ['ping'], answer: 'Ping कमांड से नेटवर्क कनेक्शन की जांच की जाती है।' },
+    { question: ['format'], answer: 'Format का मतलब स्टोरेज डिवाइस को रीसेट करना है।' },
+    { question: ['recycle bin'], answer: 'Recycle Bin डिलीट की गई फाइलों को अस्थायी रूप से रखता है।' }
+
+
+    // ... और भी ऐसे ही 80 प्रश्न नीचे जोड़े जाएंगे ...
+];
+
+
+    const scrollToBottom = () => {
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    };
+
+    const appendMessage = (message, sender) => {
+        let messageDiv;
+        if (sender === 'user') {
+            messageDiv = `
+                <div class="flex items-start gap-3 mb-6 justify-end">
+                    <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs md:max-w-md">
+                        <p class="text-sm">${message}</p>
+                    </div>
+                    <div class="bg-gray-300 text-gray-700 p-2 rounded-full flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                </div>`;
+        } else if (sender === 'error') {
+            messageDiv = `
+                <div class="flex items-start gap-3 mb-6">
+                    <div class="bg-red-500 text-white p-2 rounded-full flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                    </div>
+                    <div class="bg-red-100 border border-red-400 text-red-700 p-3 rounded-lg max-w-xs md:max-w-md">
+                        <p class="text-sm font-semibold">Oops! कुछ गड़बड़ हो गई।</p>
+                        <p class="text-sm">${message}</p>
+                    </div>
+                </div>`;
+        } else {
+            messageDiv = `
+                <div class="flex items-start gap-3 mb-6">
+                    <div class="bg-purple-600 text-white p-2 rounded-full flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                    </div>
+                    <div class="bg-gray-200 p-3 rounded-lg max-w-xs md:max-w-md">
+                        <p class="text-sm text-gray-800">${message}</p>
+                    </div>
+                </div>`;
+        }
+        chatContainer.innerHTML += messageDiv;
+        scrollToBottom();
+    };
+
+    const setLoading = (isLoading) => {
+        sendButton.disabled = isLoading;
+        userInput.disabled = isLoading;
+        typingIndicator.classList.toggle('hidden', !isLoading);
+        if (isLoading) scrollToBottom();
+    };
+
+    const handlePredefinedResponse = (userMessage) => {
+        for (const qa of predefinedQA) {
+            for (const q of qa.question) {
+                if (userMessage.includes(q.toLowerCase())) {
+                    setLoading(true);
+                    setTimeout(() => {
+                        appendMessage(qa.answer, 'bot');
+                        setLoading(false);
+                    }, 500);
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const originalUserMessage = userInput.value.trim();
+        if (!originalUserMessage) return;
+
+        const userMessage = originalUserMessage.toLowerCase();
+        appendMessage(originalUserMessage, 'user');
+        userInput.value = '';
+
+        if (handlePredefinedResponse(userMessage)) return;
+
+        chatHistory.push({ role: "user", parts: [{ text: originalUserMessage }] });
+        setLoading(true);
+
+        try {
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) throw new Error(`Status Code: ${response.status}`);
+
+            const result = await response.json();
+            const botMessage = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+            if (botMessage) {
+                chatHistory.push({ role: "model", parts: [{ text: botMessage }] });
+                appendMessage(botMessage, 'bot');
+            } else {
+                throw new Error("Empty or invalid response from AI");
+            }
+        } catch (error) {
+            console.error('AI Error:', error);
+            appendMessage("मैं अभी जवाब नहीं दे पा रहा हूँ। कृपया थोड़ी देर बाद प्रयास करें।", 'error');
+        } finally {
+            setLoading(false);
+            userInput.focus();
+        }
+    });
+
+    scrollToBottom();
+</script>
+</body>
+</html>
